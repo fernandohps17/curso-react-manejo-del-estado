@@ -7,7 +7,20 @@ class ClassState extends React.Component {
 
         this.state = {
             error: false,
+            loading: false,
         }
+    }
+
+    componentWillMount() {
+        console.log("componentWillMount")
+    }
+
+    componentWillUnmount() {
+        console.log("componentWillUncount")
+    }
+
+    componenteDidMount() {
+        console.log("componentDidMount")
     }
 
     render() {
@@ -21,11 +34,15 @@ class ClassState extends React.Component {
                     <p>Error: el codigó es incorrecto</p>
                 )}
 
+                {(this.state.loading && (
+                    <p>Cargando...</p>
+                ))}
+
                 <input placeholder='Codigo de Seguridad'/>
 
                 <button onClick={() => 
-                    this.setState(prevState => ({error: !prevState.error }))
-                    }>Comprobar</button>
+                    this.setState({loading: true})}>Comprobar
+                </button>
             </div>
         )
     }

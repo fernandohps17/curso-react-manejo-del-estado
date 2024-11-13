@@ -17,8 +17,6 @@ function UseState({ name }) {
         }, [])
     }
 
-    // video 5
-
     return (
         <div>
             <h2>Eliminar {name}</h2>
